@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace Duels_de_Guerriers;
 
 public class guerrier
@@ -26,6 +28,7 @@ public class guerrier
 
     public override string ToString()
     {
+        Console.ForegroundColor = ConsoleColor.Green;
         return $"{Name} à {PV} PV";
     }
 
@@ -35,12 +38,12 @@ public class guerrier
         
         if (random.Next(1, 101) <= 20)
         {
-            Console.WriteLine($"{Name} rate son attaque ( cheh ) !");
+            Console.WriteLine($"{Name} rate son attaque !");
             return 0;
         }
         
         int damage = random.Next(0, 16);
-        Console.WriteLine($"{Name} attaque et inflige {damage} points de dégâts.");
+        Console.WriteLine($"{Name} attaque et inflige {damage} de dégâts.");
         return damage;
     }
 
@@ -55,7 +58,7 @@ public class guerrier
     public virtual void ReceiveDamage(int damage)
     {
         PV = Math.Max(0, PV - damage);
-        Console.WriteLine($"{Name} a reçu {damage} points de dégâts. PV restants : {PV}");
+        Console.WriteLine($"{Name} a reçu {damage} de dégâts. PV restants : {PV}");
     }
 
     public virtual void Reset()
