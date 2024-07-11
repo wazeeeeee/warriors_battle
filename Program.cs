@@ -102,7 +102,9 @@
     void CreateCharactere()
     {
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.Write("\t--- Create your charactere ---");
+        WhiteColors();
         Console.Write("\n\tSelect your name : ");
         string Name = Console.ReadLine();
         Console.Write("\n\tSelect your type");
@@ -110,6 +112,7 @@
         ConsoleKeyInfo keyInfo = Console.ReadKey(true);
         if (keyInfo.Key == ConsoleKey.G)
         {
+            Console.Clear();
             Console.WriteLine("\nVous avez choisi la classe Guerrier !");
             YourHero = new guerrier(Name);
             Console.WriteLine($"Le guerrier {YourHero.ToString()}.");
@@ -119,18 +122,20 @@
         }
         else if (keyInfo.Key == ConsoleKey.N)
         {
+            Console.Clear();
             Console.WriteLine("Vous avez choisi la classe Nain !");
             YourHero = new nain(Name);
-            Console.WriteLine($"Le guerrier {YourHero.ToString()}.");
+            Console.WriteLine($"Le nain {YourHero.ToString()}.");
             Console.ReadKey();
             Console.Clear();
             Menu();
         }
         else if (keyInfo.Key == ConsoleKey.E)
         {
+            Console.Clear();
             Console.WriteLine("Vous avez choisi la classe Elfe !");
             YourHero = new elfe(Name);
-            Console.WriteLine($"Le guerrier {YourHero.ToString()}.");
+            Console.WriteLine($"L'efle {YourHero.ToString()}.");
             Console.ReadKey();
             Console.Clear();
             Menu();
