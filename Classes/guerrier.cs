@@ -47,32 +47,9 @@ public class guerrier
     public virtual int Heal()
     {
         Random random = new Random();
-        int heal = random.Next(6, 11);
+        int heal = random.Next(5, 11);
         PV = Math.Min(100, PV + heal);
         return heal;
-    }
-    
-    public virtual guerrier TryTransformToNain()
-    {
-        Random random = new Random();
-        if (random.Next(1, 101) <= 30)
-        {
-            Console.WriteLine($"{Name} s'est transformé en Nain !");
-            return new nain(Name) { PV = this.PV };
-        }
-        return this;
-    }
-    
-    public virtual guerrier TryTransformToElfe()
-    {
-        Random random = new Random();
-        if (random.Next(1, 101) <= 30)
-        {
-            Console.WriteLine($"{Name} s'est transformé en Elfe !");
-            return new elfe(Name) { PV = this.PV };
-        }
-
-        return this;
     }
     
     public virtual void ReceiveDamage(int damage)
