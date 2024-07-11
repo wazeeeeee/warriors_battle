@@ -1,7 +1,6 @@
 using Duels_de_Guerriers;
 
-namespace Duels_de_Guerriers
-{
+
     public class nain : guerrier
     {
         private int _pvShield;
@@ -23,12 +22,12 @@ namespace Duels_de_Guerriers
             
             if (random.Next(1, 101) <= 15)
             {
-                Console.WriteLine($"{Name} rate son attaque ( looser ) !");
+                Console.WriteLine($"{Name} rate son attaque !");
                 return 0;
             }
         
             int damage = random.Next(0, 16) + 2; 
-            Console.WriteLine($"{Name} attaque avec la puissance d'un nain de jardin et inflige {damage} points de dégâts !");
+            Console.WriteLine($"{Name} attaque avec la puissance d'un nain de jardin et inflige {damage} de dégâts !");
             return damage;
         }
         
@@ -43,7 +42,7 @@ namespace Duels_de_Guerriers
                 base.ReceiveDamage(remainingDamage);
             }
 
-            Console.WriteLine($"{Name} absorbe {damageToShield} dégâts avec son bouclier. Bouclier restant : {Shield}");
+            Console.WriteLine($"{Name} absorbe {damageToShield} dégâts avec son bouclier. Bouclier : {Shield}");
         }
         
         public override int Heal()
@@ -51,7 +50,7 @@ namespace Duels_de_Guerriers
             int healAmount = base.Heal();
             int shieldRepair = new Random().Next(5, 11);
             Shield = Math.Min(50, Shield + shieldRepair);
-            Console.WriteLine($"{Name} répare son bouclier de {shieldRepair} points. Bouclier actuel : {Shield}");
+            Console.WriteLine($"{Name} répare son bouclier de {shieldRepair} points. Bouclier : {Shield}");
             return healAmount;
         }
         
@@ -61,4 +60,3 @@ namespace Duels_de_Guerriers
             Shield = 50;
         }
     }
-}
