@@ -16,6 +16,7 @@
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.A)
             {
+                GreenColors();
                 int damage = YourHero.Attack();
                 if (damage > 0)
                 {
@@ -26,6 +27,7 @@
             
                 if (guerrier2.PV > 0)
                 {
+                    RedColors();
                     damage = guerrier2.Attack();
                     if (damage > 0)
                     {
@@ -37,22 +39,28 @@
             }
             else if (keyInfo.Key == ConsoleKey.H)
             {
+                YellowColors();
                 if (YourHero.PV < 100)
                 {
                     int healAmount = YourHero.Heal();
                     Console.WriteLine($"{YourHero.Name} se soigne de {healAmount} PV");
                     Console.WriteLine($"{YourHero.Name} a maintenant {YourHero.PV} PV");
+                    WhiteColors();
                     Console.WriteLine("");
                 }
                 else
                 {
                     Console.WriteLine($"{YourHero.Name} a déjà tous ses PV ({YourHero.PV})");
+                    WhiteColors();
                     Console.WriteLine("");
                 }
                 
                 int damage = guerrier2.Attack();
+                GreenColors();
                 YourHero.ReceiveDamage(damage);
+                RedColors();
                 Console.WriteLine($"{guerrier2.Name} attaque et inflige {damage} points de dégâts à {YourHero.Name}");
+                GreenColors();
                 Console.WriteLine($"{YourHero.Name} a maintenant {YourHero.PV} PV");
                 Console.WriteLine("");
             }
@@ -156,11 +164,12 @@
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("\t --- Warriors Duel ---");
+            Console.WriteLine($"\tYour charactere : {YourHero.ToString()}");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n\tStart Battle\t\t1");
-            Console.WriteLine("\tCreate a charactere\t2");
+            Console.WriteLine("\tRecreate a charactere\t2");
             
-            Console.WriteLine("\nSelect menu : ");
+            Console.Write("\nSelect menu : ");
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.D1)
             {
@@ -182,20 +191,24 @@
         } while (!isEnd);
     }
     
-    Menu();
+    CreateCharactere();
    
 
     #region Libraries
-    static void RedColors()
+    void RedColors()
     {
         Console.ForegroundColor = ConsoleColor.Red;
     }
-    static void GreenColors()
+    void GreenColors()
     {
         Console.ForegroundColor = ConsoleColor.Green;
     }
-    static void WhiteColors()
+    void WhiteColors()
     {
         Console.ForegroundColor = ConsoleColor.White;
+    }
+    void YellowColors()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
     }
     #endregion
