@@ -1,7 +1,6 @@
 using Duels_de_Guerriers;
 
-namespace Duels_de_Guerriers
-{
+
     public class elfe : guerrier
     {
         private int _attack90;
@@ -28,4 +27,3 @@ namespace Duels_de_Guerriers
             return damage;
         }
     }
-}
