@@ -1,5 +1,4 @@
 using System.Drawing;
-
 namespace Duels_de_Guerriers;
 
 public class guerrier

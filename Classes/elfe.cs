@@ -1,6 +1,4 @@
 using Duels_de_Guerriers;
-
-
     public class elfe : guerrier
     {
         private int _attack90;
@@ -18,7 +16,7 @@ using Duels_de_Guerriers;
         
             if (random.Next(1, 101) <= 10)
             {
-                Console.WriteLine($"{Name} rate son attaque ( cheh ) !");
+                Console.WriteLine($"{Name} rate son attaque !");
                 return 0;
             }
         

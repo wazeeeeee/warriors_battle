@@ -1,6 +1,4 @@
 using Duels_de_Guerriers;
-
-
     public class nain : guerrier
     {
         private int _pvShield;
