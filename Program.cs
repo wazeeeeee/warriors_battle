@@ -106,8 +106,8 @@
             }
         }
     }
-
-    void CreateCharactere()
+    
+    string CreateCharactere()
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -115,8 +115,16 @@
         WhiteColors();
         Console.Write("\n\tSelect your name : ");
         string Name = Console.ReadLine();
+        if (Name == "")
+        {
+            RedColors();
+            Console.WriteLine("Error ! You can't entry empty.");
+            Thread.Sleep(1000);
+            Console.ResetColor();
+            return CreateCharactere();
+        }
         Console.Write("\n\tSelect your type");
-        Console.WriteLine("\n\tG: Guerrier, N: Nain, E: Elfe");
+        Console.WriteLine("\n\tG: Guerrier, N: Nain, E: Elfe, B: Gimli");
         ConsoleKeyInfo keyInfo = Console.ReadKey(true);
         if (keyInfo.Key == ConsoleKey.G)
         {
@@ -143,7 +151,16 @@
             Console.Clear();
             Console.WriteLine("Vous avez choisi la classe Elfe !");
             YourHero = new elfe(Name);
-            Console.WriteLine($"L'efle {YourHero.ToString()}.");
+            Console.Write($"\nL'efle {YourHero.ToString()}.");
+            Console.ReadKey();
+            Console.Clear();
+            Menu();
+        }else if (keyInfo.Key == ConsoleKey.B)
+        {
+            Console.Clear();
+            Console.WriteLine("Vous avez choisi la classe Gimli !");
+            YourHero = new gimli(Name);
+            Console.WriteLine($"Gimli {YourHero.ToString()}.");
             Console.ReadKey();
             Console.Clear();
             Menu();
@@ -154,6 +171,8 @@
             Console.WriteLine("Input not valid !");
             WhiteColors();
         }
+
+        return "";
     }
 
     void Menu()
